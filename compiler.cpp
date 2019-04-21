@@ -20,6 +20,13 @@ unsigned char funCode[] = {
 const int funSize = 15;
 const int pos = 12;
 
+void printUsage(){
+    printf("Usage:\n"
+           "\"execute [num]\" or \"ok [num]\" - to get answer by your number from JIT.\n"
+           "\"change [num]\" or \"now [num]\" - to change JIT number.\n"
+           "\"exit\" or \"no\"                - exit");
+}
+
 void printErr(const std::string& message) {
     fprintf(stderr, "ERROR %s: %s\n", message.c_str(), strerror(errno));
 }
@@ -77,6 +84,7 @@ struct Function {
 
 
 int main() {
+    printUsage();
     Function function = Function(funCode, funSize);
 
     std::string line;
